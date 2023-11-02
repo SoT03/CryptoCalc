@@ -17,7 +17,7 @@
 			list-style: none;
 
 			a {
-				font-size: 2rem;
+				font-size: 1.8rem;
 				color: #fff;
 				text-decoration: none;
 
@@ -47,7 +47,7 @@
 				border-bottom: 2px solid gold;
 				text-align: center;
 				a {
-					font-size: 3rem;
+					font-size: 2.4rem;
 					padding: 1em;
 				}
 			}
@@ -55,6 +55,7 @@
 	}
 	menu {
 		display: none;
+		margin-top: 1.5em;
 		padding: 1em;
 		color: #fff;
 		cursor: pointer;
@@ -69,11 +70,15 @@
 			z-index: 10;
 		}
 	}
+
+	@media (max-width: 996px) {
+		height: 60px;
+	}
 }
 
 .logo {
 	text-decoration: none;
-	font-size: 3rem;
+	font-size: 2.4rem;
 	font-weight: bold;
 	color: #ebcc21;
 	cursor: pointer;
