@@ -5,7 +5,11 @@ import { IconX, IconMenu2 } from '@tabler/icons-react';
 import { useState } from 'react';
 
 const Navbar = () => {
-	const [mobileNavIsOpen, setMobileNavIsOpen] = useState(true);
+	const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false);
+
+	const mobileNavHandler = () => {
+		setMobileNavIsOpen(!mobileNavIsOpen);
+	};
 
 	return (
 		<nav className={classes.navbar}>
@@ -13,7 +17,7 @@ const Navbar = () => {
 				<Link href='/' className={classes.logo}>
 					CryptoCoin
 				</Link>
-				<ul>
+				<ul className={mobileNavIsOpen ? `${classes['mobile-open']}` : ''}>
 					<li>
 						<Link href='/'>Home</Link>
 					</li>
@@ -28,15 +32,13 @@ const Navbar = () => {
 					</li>
 				</ul>
 				<menu>
-					<IconX />
-					<IconMenu2 />
+					{mobileNavIsOpen && <IconX onClick={mobileNavHandler} />}
+					{!mobileNavIsOpen && <IconMenu2 onClick={mobileNavHandler} />}
 				</menu>
 			</div>
 		</nav>
 
 		// Mobile nav
-
-		
 	);
 };
 

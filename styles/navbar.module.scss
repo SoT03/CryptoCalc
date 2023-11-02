@@ -1,6 +1,7 @@
 .navbar {
 	background-color: #222;
 }
+
 .nav {
 	display: flex;
 	flex-direction: row;
@@ -33,9 +34,11 @@
 			align-items: center;
 			left: 0;
 			top: 0;
+			transform: translateY(-101%);
 			width: 100vw;
 			height: 100vh;
 			background-color: #222;
+			transition: transform 0.7s;
 
 			li {
 				width: 60%;
@@ -50,12 +53,20 @@
 			}
 		}
 	}
-
 	menu {
 		display: none;
+		padding: 1em;
+		color: #fff;
+		cursor: pointer;
+
+		svg {
+			width: 4rem;
+			height: 4rem;
+		}
 
 		@media (max-width: 996px) {
 			display: block;
+			z-index: 10;
 		}
 	}
 }
@@ -70,4 +81,9 @@
 	&:hover {
 		color: #c2a91a;
 	}
+}
+
+// Todo: fix the important
+.mobile-open {
+	transform: translateY(0) !important;
 }
