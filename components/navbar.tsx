@@ -25,6 +25,9 @@ const Navbar = () => {
 						<Link href='/'>Market</Link>
 					</li>
 					<li>
+						<Link href='/'>Conventer</Link>
+					</li>
+					<li>
 						<Link href='/'>About Us</Link>
 					</li>
 					<li>
