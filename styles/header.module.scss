@@ -1,9 +1,11 @@
 .header {
 	position: relative;
-	margin-top: 60px;
+	height: 500px;
+	margin-top: 50px;
 	padding: 2em 0em;
 	text-align: center;
-	background-image: url('../public//img/bitcoin-2007769_640.jpg');
+	background-image: linear-gradient(to top, #360a53 0%, #1a0f7c 100%);
+	// background-image: url('../public//img/bitcoin-2007769_640.jpg');
 	background-size: cover;
 	background-position: center;
 	z-index: -2;
