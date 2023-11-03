@@ -1,3 +1,4 @@
+import { IconCoin, IconCurrencyBitcoin } from '@tabler/icons-react';
 import classes from '../styles/header.module.scss';
 
 const Header = () => {
@@ -10,6 +11,8 @@ const Header = () => {
 				</h1>
 				<p>Learn how to make money from crypto currencies with our help.</p>
 				<button>Get Started</button>
+				<IconCoin className={classes['coin-icon']} />
+				<IconCurrencyBitcoin className={classes['bitcoin-icon']} />
 			</div>
 		</header>
 	);

@@ -43,5 +43,48 @@
 		background-color: $gold;
 		border-radius: 0.8rem;
 		border: none;
+		cursor: pointer;
+	}
+
+	svg {
+		position: absolute;
+		color: rgb(151, 19, 145);
+		z-index: -1;
+	}
+
+	.coin-icon {
+		bottom: 14%;
+		left: -22%;
+		width: 22rem;
+		height: 22rem;
+		animation: spin-right 40s infinite;
+	}
+
+	.bitcoin-icon {
+		top: 12%;
+		right: 12%;
+		width: 9rem;
+		height: 9rem;
+		animation: spin-left 120s infinite;
+	}
+}
+
+@media (min-width: 768px) {
+}
+
+@keyframes spin-right {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+@keyframes spin-left {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
 	}
 }
