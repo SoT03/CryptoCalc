@@ -1,3 +1,5 @@
+@use './util/colors.scss' as *;
+
 * {
 	padding: 0;
 	margin: 0;
@@ -10,9 +12,8 @@ html {
 }
 
 body {
-	background-color: #222;
+	background-color: $primaryColor;
 }
-
 
 .wrapper {
 	max-width: 1200px;

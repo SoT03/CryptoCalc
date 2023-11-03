@@ -70,6 +70,40 @@
 }
 
 @media (min-width: 768px) {
+	.header {
+		h1 {
+			font-size: 4.8rem;
+			margin-bottom: 0.5em;
+		}
+		p {
+			font-size: 2rem;
+			margin-bottom: 2em;
+		}
+		.coin-icon {
+			left: -8%;
+			width: 30rem;
+			height: 30rem;
+		}
+
+		.bitcoin-icon {
+			top: 12%;
+			right: 12%;
+			width: 16rem;
+			height: 16rem;
+			animation: spin-left 120s infinite;
+		}
+	}
+}
+
+@media (min-width: 996px) {
+	.header {
+		height: 60vh;
+
+		.coin-icon,
+		.bitcoin-icon {
+			display: none;
+		}
+	}
 }
 
 @keyframes spin-right {
