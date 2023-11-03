@@ -1,8 +1,10 @@
+@use './util/colors.scss' as *;
+
 .navbar {
 	position: fixed;
 	top: 0;
 	width: 100%;
-	background-color: #1a0f7c;
+	background-color: $secondaryColor;
 }
 
 .nav {
@@ -21,11 +23,11 @@
 
 			a {
 				font-size: 1.8rem;
-				color: #fff;
+				color: $white;
 				text-decoration: none;
 
 				&:hover {
-					color: #c2a91a;
+					color: $goldDark;
 				}
 			}
 		}
@@ -40,14 +42,14 @@
 			transform: translateY(-101%);
 			width: 100vw;
 			height: 100vh;
-			background-color: #222;
+			background-color: $secondaryColor;
 			transition: transform 0.7s;
 
 			li {
 				width: 60%;
 				margin: 1em 0;
 				padding-bottom: 1em;
-				border-bottom: 2px solid gold;
+				border-bottom: 2px solid $gold;
 				text-align: center;
 				a {
 					font-size: 2.4rem;
@@ -59,7 +61,7 @@
 	menu {
 		display: none;
 		padding: 1em;
-		color: #fff;
+		color: $white;
 		cursor: pointer;
 
 		svg {
@@ -86,7 +88,7 @@
 	cursor: pointer;
 
 	&:hover {
-		color: #c2a91a;
+		color: $gold;
 	}
 }
 
