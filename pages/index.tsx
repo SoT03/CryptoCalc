@@ -1,11 +1,11 @@
 import Header from '@/components/header';
 import Layout from '@/components/layout/layout';
 
-const HomePage: React.FC = (props: any) => {
-	console.log(props.data);
+const HomePage: React.FC<{ firstFourCurrencies: [] }> = (props: any) => {
+	console.log(props.firstFourCurrencies);
 	return (
 		<Layout>
-			<Header />
+			<Header data={props.firstFourCurrencies} />
 		</Layout>
 	);
 };
@@ -28,5 +28,7 @@ export const getServerSideProps = async () => {
 
 	const cryptoData = await response.json();
 
-	return { props: { data: cryptoData } };
+	const firstFour = cryptoData.data.slice(0, 4);
+
+	return { props: { firstFourCurrencies: firstFour } };
 };

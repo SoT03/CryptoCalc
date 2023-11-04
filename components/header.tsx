@@ -1,7 +1,10 @@
 import { IconCoin, IconCurrencyBitcoin } from '@tabler/icons-react';
 import classes from '../styles/header.module.scss';
+import HeaderCryptoItem from './headerCryptoItem';
+import { cryptoItem } from './headerCryptoItem';
 
-const Header = () => {
+const Header: React.FC<{ data: [cryptoItem ] }> = (props) => {
+	console.log(props.data);
 	return (
 		<header className={classes.header}>
 			<div className='wrapper'>
@@ -13,7 +16,11 @@ const Header = () => {
 				<IconCoin className={classes['coin-icon']} />
 				<IconCurrencyBitcoin className={classes['bitcoin-icon']} />
 
-				<div className={classes['popular-crypto']}></div>
+				<ul className={classes['popular-crypto']}>
+					{props.data.map((item) => (
+						<HeaderCryptoItem key={item.id}  data={item}/>
+					))}
+				</ul>
 			</div>
 		</header>
 	);
