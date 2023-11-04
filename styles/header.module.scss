@@ -115,6 +115,15 @@
 		}
 	}
 }
+@media (min-width: 996px) {
+	.header {
+		h1 {
+			margin-top: 2em;
+			padding: 0 2em;
+			font-size: 8rem;
+		}
+	}
+}
 
 @keyframes spin-right {
 	from {
