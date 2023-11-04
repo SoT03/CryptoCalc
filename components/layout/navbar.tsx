@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import classes from '../styles/navbar.module.scss';
+import classes from '../../styles/navbar.module.scss';
 import { IconX, IconMenu2 } from '@tabler/icons-react';
 import { useState } from 'react';
 

@@ -13,6 +13,8 @@ const Header = () => {
 				<button>Get Started</button>
 				<IconCoin className={classes['coin-icon']} />
 				<IconCurrencyBitcoin className={classes['bitcoin-icon']} />
+
+				<div className={classes['popular-crypto']}></div>
 			</div>
 		</header>
 	);

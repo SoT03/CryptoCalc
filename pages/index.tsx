@@ -1,12 +1,11 @@
 import Header from '@/components/header';
-import Navbar from '@/components/navbar';
+import Layout from '@/components/layout/layout';
 
 const HomePage = () => {
 	return (
-		<>
-			<Navbar />
+		<Layout>
 			<Header />
-		</>
+		</Layout>
 	);
 };
 

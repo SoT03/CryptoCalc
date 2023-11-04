@@ -16,7 +16,7 @@
 	// background-image: url('../public//img/bitcoin-2007769_640.jpg');
 	background-size: cover;
 	background-position: center;
-	z-index: -2;
+	z-index: 1;
 
 	h1 {
 		font-size: 3.6rem;
@@ -43,7 +43,13 @@
 		background-color: $gold;
 		border-radius: 0.8rem;
 		border: none;
+		transition: color 0.3s, background-color 0.3s;
 		cursor: pointer;
+
+		&:hover {
+			background-color: #000;
+			color: $gold;
+		}
 	}
 
 	svg {
@@ -102,6 +108,10 @@
 		.coin-icon,
 		.bitcoin-icon {
 			display: none;
+		}
+
+		button {
+			width: 30%;
 		}
 	}
 }
