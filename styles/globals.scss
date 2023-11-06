@@ -7,7 +7,7 @@
 }
 
 html {
-	font-size: 10px;
+	font-size: 62.5%;
 	font-family: monospace;
 	scroll-behavior: smooth;
 }
@@ -56,5 +56,9 @@ section {
 			height: 0.3rem;
 			background-color: $gold;
 		}
+	}
+
+	@media (min-width: 996px) {
+		padding: 2em 2em;
 	}
 }

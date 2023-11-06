@@ -8,6 +8,7 @@
 	padding: 2em 4em;
 	text-align: center;
 	color: $white;
+	font-size: 1.6rem;
 	background-image: linear-gradient(
 		to top,
 		$primaryColor 0%,
@@ -19,7 +20,7 @@
 	z-index: 1;
 
 	h1 {
-		font-size: 3.6rem;
+		font-size: 4rem;
 		font-weight: bold;
 		text-transform: uppercase;
 	}
@@ -32,14 +33,14 @@
 
 	p {
 		margin: 1em 0;
-		font-size: 1.6rem;
+		font-size: 1.8rem;
 	}
 
 	button {
 		width: 70%;
-		margin-top: 0.5em;
+		margin-top: 1em;
 		padding: 0.7em 1.4em;
-		font-size: 2rem;
+		font-size: 2.2rem;
 		background-color: $gold;
 		border-radius: 0.8rem;
 		border: none;
@@ -61,16 +62,16 @@
 	.coin-icon {
 		bottom: 14%;
 		left: -22%;
-		width: 22rem;
-		height: 22rem;
+		width: 32rem;
+		height: 32rem;
 		animation: spin-right 40s infinite;
 	}
 
 	.bitcoin-icon {
 		top: 12%;
 		right: 12%;
-		width: 9rem;
-		height: 9rem;
+		width: 12rem;
+		height: 12rem;
 		animation: spin-left 120s infinite;
 	}
 
@@ -88,24 +89,24 @@
 @media (min-width: 768px) {
 	.header {
 		h1 {
-			font-size: 4.8rem;
+			font-size: 6rem;
 			margin-bottom: 0.5em;
 		}
 		p {
-			font-size: 2rem;
+			font-size: 2.4rem;
 			margin-bottom: 2em;
 		}
 		.coin-icon {
-			left: -8%;
-			width: 30rem;
-			height: 30rem;
+			left: -22%;
+			width: 60rem;
+			height: 60rem;
 		}
 
 		.bitcoin-icon {
 			top: 12%;
 			right: 12%;
-			width: 16rem;
-			height: 16rem;
+			width: 22rem;
+			height: 22rem;
 			animation: spin-left 120s infinite;
 		}
 	}
@@ -116,7 +117,7 @@
 		align-items: start;
 		height: auto;
 		h1 {
-			margin-top: 4em;
+			margin-top: 3em;
 		}
 
 		.coin-icon,
@@ -132,9 +133,9 @@
 @media (min-width: 1200px) {
 	.header {
 		h1 {
-			margin-top: 1em;
+			margin-top: 2em;
 			padding: 0 2em;
-			font-size: 8rem;
+			font-size: 8.2rem;
 		}
 	}
 }

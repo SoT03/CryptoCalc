@@ -15,16 +15,17 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 1.5em 2em;
+	font-size: 1.6rem;
 
 	ul {
 		display: flex;
 		flex-direction: row;
 		li {
-			margin: 0 1.5em;
+			margin: 0 1.2em;
 			list-style: none;
 
 			a {
-				font-size: 1.8rem;
+				font-size: 2.2rem;
 				color: $white;
 				text-decoration: none;
 				transition: color 0.3s;
@@ -50,12 +51,12 @@
 
 			li {
 				width: 60%;
-				margin: 1em 0;
-				padding-bottom: 1em;
+				margin: 0.5em 0;
+				padding-bottom: 0.7em;
 				border-bottom: 2px solid $gold;
 				text-align: center;
 				a {
-					font-size: 2.4rem;
+					font-size: 2.8rem;
 					padding: 1em;
 				}
 			}
@@ -63,13 +64,13 @@
 	}
 	menu {
 		display: none;
-		padding: 1em;
+		padding: 0.7em;
 		color: $white;
 		cursor: pointer;
 
 		svg {
-			width: 3.4rem;
-			height: 3.4rem;
+			width: 4rem;
+			height: 4rem;
 		}
 
 		@media (max-width: 996px) {
@@ -85,7 +86,7 @@
 
 .logo {
 	text-decoration: none;
-	font-size: 2.4rem;
+	font-size: 3rem;
 	font-weight: bold;
 	color: #ebcc21;
 	cursor: pointer;
