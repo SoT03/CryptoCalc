@@ -27,6 +27,7 @@
 				font-size: 1.8rem;
 				color: $white;
 				text-decoration: none;
+				transition: color 0.3s;
 
 				&:hover {
 					color: $goldDark;

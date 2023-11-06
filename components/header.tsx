@@ -3,13 +3,13 @@ import classes from '../styles/header.module.scss';
 import HeaderCryptoItem from './headerCryptoItem';
 import { cryptoItem } from './headerCryptoItem';
 
-const Header: React.FC<{ data: [cryptoItem ] }> = (props) => {
+const Header: React.FC<{ data: [cryptoItem] }> = (props) => {
 	console.log(props.data);
 	return (
 		<header className={classes.header}>
 			<div className='wrapper'>
 				<h1>
-					Track, trade and <span>make profit</span>
+					Track, trade and <span className={classes.gradient}>make profit</span>
 				</h1>
 				<p>Learn how to make money from crypto currencies with our help.</p>
 				<button>Get Started</button>
@@ -18,7 +18,7 @@ const Header: React.FC<{ data: [cryptoItem ] }> = (props) => {
 
 				<ul className={classes['popular-crypto']}>
 					{props.data.map((item) => (
-						<HeaderCryptoItem key={item.id}  data={item}/>
+						<HeaderCryptoItem key={item.id} id={item.id} data={item} />
 					))}
 				</ul>
 			</div>

@@ -1,0 +1,44 @@
+.item {
+	img {
+		width: 64px;
+		margin-bottom: 0.5em;
+	}
+
+	h2 {
+		margin-top: 0.5em;
+		font-size: 1.8rem;
+	}
+	h3 {
+		margin-top: 0.5em;
+		font-size: 1.6rem;
+	}
+	span {
+		font-style: 1.4rem;
+	}
+}
+
+.red-text {
+	color: rgb(204, 29, 29);
+}
+
+.green-text {
+	color: rgb(34, 211, 34);
+}
+
+@media (min-width: 1200px) {
+	.item {
+		img {
+			width: 72px;
+			margin-bottom: 0.5em;
+		}
+
+		h2 {
+			margin-top: 0.5em;
+			font-size: 2rem;
+		}
+		h3 {
+			margin-top: 0.5em;
+			font-size: 1.8rem;
+		}
+	}
+}
