@@ -38,3 +38,21 @@ body {
 .green-text {
 	color: rgb(34, 211, 34);
 }
+
+section {
+	padding: 2em 0;
+
+	h2 {
+		text-align: center;
+		color: $white;
+		font-size: 3.4rem;
+		text-transform: uppercase;
+
+		hr {
+			margin: 0.2em auto;
+			width: 90%;
+			height: 0.3rem;
+			background-color: $gold;
+		}
+	}
+}

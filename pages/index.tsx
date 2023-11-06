@@ -1,11 +1,14 @@
 import Header from '@/components/header';
 import Layout from '@/components/layout/layout';
+import Market from '@/components/market';
 
 const HomePage: React.FC<{ firstFourCurrencies: [] }> = (props: any) => {
-	console.log(props.firstFourCurrencies);
 	return (
 		<Layout>
 			<Header data={props.firstFourCurrencies} />
+			<main>
+				<Market />
+			</main>
 		</Layout>
 	);
 };
@@ -29,6 +32,9 @@ export const getServerSideProps = async () => {
 	const cryptoData = await response.json();
 
 	const firstFour = cryptoData.data.slice(0, 4);
+	const allCryptos = cryptoData.data.slice(0, 50);
 
-	return { props: { firstFourCurrencies: firstFour } };
+	return {
+		props: { firstFourCurrencies: firstFour, allCurrencies: allCryptos },
+	};
 };

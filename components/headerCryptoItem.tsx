@@ -1,4 +1,4 @@
-import classes from '../styles/headerCryptoItem.module.scss';
+import classes from '../styles/header/headerCryptoItem.module.scss';
 
 export type cryptoItem = {
 	id: number;
@@ -19,12 +19,7 @@ const HeaderCryptoItem: React.FC<{ data: cryptoItem; id: number }> = (
 			/>
 			<h2>
 				{props.data.name}{' '}
-				<span
-					className={
-						precentChange24 >= 0
-							? `${classes['green-text']}`
-							: `${classes['red-text']}`
-					}>
+				<span className={precentChange24 >= 0 ? 'green-text' : 'red-text'}>
 					{precentChange24} %
 				</span>
 			</h2>
