@@ -9,6 +9,7 @@
 html {
 	font-size: 10px;
 	font-family: monospace;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -41,11 +42,12 @@ body {
 
 section {
 	padding: 2em 0;
+	font-size: 1.6rem;
 
 	h2 {
 		text-align: center;
 		color: $white;
-		font-size: 3.4rem;
+		font-size: 5rem;
 		text-transform: uppercase;
 
 		hr {

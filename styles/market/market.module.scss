@@ -1,0 +1,54 @@
+@use '../util/colors.scss' as *;
+.table {
+	width: 90%;
+	margin: 3em auto 0 auto;
+	padding: 1em;
+	color: $white;
+	text-align: right;
+	border-collapse: collapse;
+	overflow: hidden;
+
+	thead {
+		font-size: 2.2rem;
+		border-top: 1px solid white;
+
+		th:nth-child(1),
+		th:nth-child(2) {
+			text-align: left;
+		}
+	}
+
+	tbody {
+		font-size: 2rem;
+	}
+
+	th,
+	td {
+		text-align: right;
+		padding: 1em 1em;
+		border-bottom: 1px solid white;
+	}
+
+	td[data-cell='id'],
+	td[data-cell='name'] {
+		text-align: left;
+	}
+}
+
+@media (max-width: 996px) {
+	.table {
+		width: 100%;
+		thead {
+			font-size: 1.8rem;
+		}
+
+		tbody {
+			font-size: 1.6rem;
+		}
+
+		th,
+		td {
+			padding: 1em;
+		}
+	}
+}
