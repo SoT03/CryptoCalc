@@ -23,7 +23,10 @@ const Market: React.FC<{ data: [tableCellsData] }> = (props) => {
 	const paginationButtons = [];
 	for (let i = 1; i <= 5; i++) {
 		paginationButtons.push(
-			<button key={i} onClick={() => setPageNumber(i)}>
+			<button
+				key={i}
+				onClick={() => setPageNumber(i)}
+				className={pageNumber === i ? classes['btn-active'] : ''}>
 				{i}
 			</button>
 		);
@@ -60,7 +63,7 @@ const Market: React.FC<{ data: [tableCellsData] }> = (props) => {
 				</tbody>
 			</table>
 
-			<menu>{paginationButtons}</menu>
+			<menu className={classes.menu}>{paginationButtons}</menu>
 		</section>
 	);
 };

@@ -49,6 +49,26 @@
 	}
 }
 
+.menu {
+	display: flex;
+	justify-content: center;
+	margin: 1em;
+	button {
+		padding: 0.2em 0.6em;
+		margin: 0 0.5em;
+		font-size: 2rem;
+		border-radius: 50%;
+		border: none;
+		box-shadow: 0 0 5px black;
+		cursor: pointer;
+	}
+
+	.btn-active {
+		background-color: rgb(18, 176, 224);
+		color: $white;
+	}
+}
+
 @media (max-width: 996px) {
 	.table {
 		width: 100%;
