@@ -20,6 +20,10 @@
 
 	tbody {
 		font-size: 2rem;
+
+		tr {
+			cursor: pointer;
+		}
 	}
 
 	th,
@@ -48,7 +52,55 @@
 
 		th,
 		td {
-			padding: 1em;
+			padding: 1.5em;
+		}
+	}
+}
+
+@media (max-width: 760px) {
+	.table {
+		border-radius: 1rem;
+		thead {
+			border: none;
+			th {
+				display: none;
+			}
+		}
+
+		tr {
+			background-color: #232323;
+
+			&:nth-of-type(even) {
+				background-color: #323232;
+			}
+
+			td {
+				display: block;
+				padding: 0.5em 2em;
+				text-align: left;
+				border: none;
+
+				&[data-cell='name'] {
+					text-align: left;
+				}
+				&[data-cell='id'] {
+					display: none;
+				}
+
+				&::before {
+					content: attr(data-cell) ': ';
+					font-weight: bold;
+					text-transform: capitalize;
+				}
+
+				&:last-child {
+					padding-bottom: 2em;
+				}
+
+				&:nth-child(2) {
+					padding-top: 2em;
+				}
+			}
 		}
 	}
 }
