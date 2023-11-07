@@ -3,6 +3,8 @@ import { tableCellsData } from './market';
 const TableItem: React.FC<{ data: tableCellsData; index: number }> = (
 	props
 ) => {
+
+	
 	const precentChange24: any =
 		props.data.quote.USD.percent_change_24h.toFixed(2);
 

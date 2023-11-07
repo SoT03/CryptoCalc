@@ -29,7 +29,12 @@ const Market: React.FC<{ data: [tableCellsData] }> = (props) => {
 		);
 	}
 
-	const tableData = props.data.slice(0, pageNumber * 10);
+	const lastItem = pageNumber * 10;
+	const firstItem = lastItem - 10;
+
+	console.log(pageNumber);
+
+	const tableData = props.data.slice(firstItem, lastItem);
 	console.log(tableData);
 
 	return (
