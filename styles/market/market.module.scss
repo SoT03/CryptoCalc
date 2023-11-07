@@ -91,6 +91,12 @@
 				border: none;
 
 				&[data-cell='name'] {
+					img {
+						order: 1;
+						align-self: flex-end;
+						margin-left: 1em;
+						width: 24px;
+					}
 					text-align: left;
 				}
 				&[data-cell='id'] {
