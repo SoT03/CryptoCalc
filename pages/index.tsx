@@ -2,12 +2,14 @@ import Header from '@/components/header';
 import Layout from '@/components/layout/layout';
 import Market from '@/components/market';
 
-const HomePage: React.FC<{ firstFourCurrencies: [] }> = (props: any) => {
+const HomePage: React.FC<{ firstFourCurrencies: []; allCurrencies: [] }> = (
+	props: any
+) => {
 	return (
 		<Layout>
 			<Header data={props.firstFourCurrencies} />
 			<main>
-				<Market />
+				<Market data={props.allCurrencies} />
 			</main>
 		</Layout>
 	);

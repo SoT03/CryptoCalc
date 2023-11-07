@@ -1,8 +1,23 @@
 import { useState } from 'react';
 import classes from '../styles/market/market.module.scss';
 import TableItem from './marketTableItem';
+import { cryptoItem } from './headerCryptoItem';
 
-const Market: React.FC = () => {
+export type tableCellsData = {
+	id: number;
+	name: string;
+	symbol: string;
+	circulating_supply: number;
+	quote: {
+		USD: {
+			price: number;
+			percent_change_24h: number;
+			market_cap: number;
+		};
+	};
+};
+
+const Market: React.FC<{ data: [tableCellsData] }> = (props) => {
 	const [pageNumber, setPageNumber] = useState(1);
 
 	const paginationButtons = [];
@@ -13,6 +28,9 @@ const Market: React.FC = () => {
 			</button>
 		);
 	}
+
+	const tableData = props.data.slice(0, pageNumber * 10);
+	console.log(tableData);
 
 	return (
 		<section className='wrapper section' id='market'>
@@ -30,9 +48,10 @@ const Market: React.FC = () => {
 					</tr>
 				</thead>
 				<tbody>
-					<TableItem />
-					<TableItem />
-					<TableItem />
+					{tableData.map((item) => {
+						const index = tableData.indexOf(item) + 1;
+						return <TableItem key={item.id} data={item} index={index} />;
+					})}
 				</tbody>
 			</table>
 
