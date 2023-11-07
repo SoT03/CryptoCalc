@@ -1,3 +1,4 @@
+import AboutUs from '@/components/aboutUs';
 import Header from '@/components/header';
 import Layout from '@/components/layout/layout';
 import Market from '@/components/market';
@@ -10,6 +11,7 @@ const HomePage: React.FC<{ firstFourCurrencies: []; allCurrencies: [] }> = (
 			<Header data={props.firstFourCurrencies} />
 			<main>
 				<Market data={props.allCurrencies} />
+				<AboutUs />
 			</main>
 		</Layout>
 	);

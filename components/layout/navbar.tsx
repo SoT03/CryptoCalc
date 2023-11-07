@@ -19,19 +19,16 @@ const Navbar = () => {
 				</Link>
 				<ul className={mobileNavIsOpen ? `${classes['mobile-open']}` : ''}>
 					<li>
-						<Link href='/'>Home</Link>
+						<Link href='#home'>Home</Link>
 					</li>
 					<li>
 						<Link href='#market'>Market</Link>
 					</li>
 					<li>
-						<Link href='/'>Conventer</Link>
+						<Link href='#aboutUs'>About Us</Link>
 					</li>
 					<li>
-						<Link href='/'>About Us</Link>
-					</li>
-					<li>
-						<Link href='/'>Join Us</Link>
+						<Link href='/'>Converter</Link>
 					</li>
 				</ul>
 				<menu>
@@ -41,7 +38,6 @@ const Navbar = () => {
 			</div>
 		</nav>
 
-		// Mobile nav
 	);
 };
 

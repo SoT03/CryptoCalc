@@ -5,13 +5,13 @@ import { cryptoItem } from './headerCryptoItem';
 
 const Header: React.FC<{ data: [cryptoItem] }> = (props) => {
 	return (
-		<header className={classes.header}>
+		<header className={classes.header} id='home'>
 			<div className='wrapper'>
 				<h1>
 					Track, trade and <span className={classes.gradient}>make profit</span>
 				</h1>
 				<p>Learn how to make money from crypto currencies with our help.</p>
-				<button>Get Started</button>
+				<button>About Us</button>
 				<IconCoin className={classes['coin-icon']} />
 				<IconCurrencyBitcoin className={classes['bitcoin-icon']} />
 
