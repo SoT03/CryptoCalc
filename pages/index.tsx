@@ -2,6 +2,7 @@ import AboutUs from '@/components/aboutUs';
 import Header from '@/components/header';
 import Layout from '@/components/layout/layout';
 import Market from '@/components/market';
+import WhyUs from '@/components/whyUs';
 
 const HomePage: React.FC<{ firstFourCurrencies: []; allCurrencies: [] }> = (
 	props: any
@@ -12,6 +13,7 @@ const HomePage: React.FC<{ firstFourCurrencies: []; allCurrencies: [] }> = (
 			<main>
 				<Market data={props.allCurrencies} />
 				<AboutUs />
+				<WhyUs />
 			</main>
 		</Layout>
 	);

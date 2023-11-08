@@ -40,14 +40,18 @@ body {
 	color: rgb(34, 211, 34);
 }
 
-section {
+.section {
 	padding: 2em;
 	font-size: 1.6rem;
+
+	&--second {
+		background-color: $secondSectionColor;
+	}
 
 	h2 {
 		text-align: center;
 		color: $white;
-		font-size: 5rem;
+		font-size: 4.6rem;
 		text-transform: uppercase;
 
 		hr {
@@ -59,6 +63,6 @@ section {
 	}
 
 	@media (min-width: 996px) {
-		padding: 2em 2em;
+		padding: 4em 2em;
 	}
 }
