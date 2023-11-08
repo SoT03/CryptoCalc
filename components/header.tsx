@@ -2,6 +2,7 @@ import { IconCoin, IconCurrencyBitcoin } from '@tabler/icons-react';
 import classes from '../styles/header/header.module.scss';
 import HeaderCryptoItem from './headerCryptoItem';
 import { cryptoItem } from './headerCryptoItem';
+import Link from 'next/link';
 
 const Header: React.FC<{ data: [cryptoItem] }> = (props) => {
 	return (
@@ -11,7 +12,8 @@ const Header: React.FC<{ data: [cryptoItem] }> = (props) => {
 					Track, trade and <span className={classes.gradient}>make profit</span>
 				</h1>
 				<p>Learn how to make money from crypto currencies with our help.</p>
-				<button>About Us</button>
+				<Link href='#aboutus'>About Us</Link>
+
 				<IconCoin className={classes['coin-icon']} />
 				<IconCurrencyBitcoin className={classes['bitcoin-icon']} />
 

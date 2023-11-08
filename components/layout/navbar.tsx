@@ -25,7 +25,7 @@ const Navbar = () => {
 						<Link href='#market'>Market</Link>
 					</li>
 					<li>
-						<Link href='#aboutUs'>About Us</Link>
+						<Link href='#aboutus'>About Us</Link>
 					</li>
 					<li>
 						<Link href='/'>Converter</Link>
@@ -37,7 +37,6 @@ const Navbar = () => {
 				</menu>
 			</div>
 		</nav>
-
 	);
 };
 

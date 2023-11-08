@@ -1,14 +1,13 @@
-import Image from 'next/image';
-import teamPic from '../public/img/team-small.jpg';
+import classes from '../styles/aboutUs/aboutUs.module.scss';
 
 const AboutUs: React.FC = () => {
 	return (
-		<section className='wrapper section' id='aboutUs'>
+		<section className='wrapper section' id='aboutus'>
 			<h2>about us</h2>
 
-			<div>
+			<div className={classes['about-us']}>
 				<div>
-					<h3>Who are we ?</h3>
+					<h3>What is CryptoCoin ?</h3>
 					<p>
 						"Cryptocoin" is a group of specialists involved in observing and
 						researching the cryptocurrency market. Every day we share our
@@ -16,12 +15,7 @@ const AboutUs: React.FC = () => {
 						them profit and understand how the market works.{' '}
 					</p>
 				</div>
-				<Image
-					src={teamPic}
-					width={480}
-					height={320}
-					alt='Team of our analysts'
-				/>
+				<img src='/static/img/team-small.jpg' alt='Team of our analysts' />
 			</div>
 		</section>
 	);

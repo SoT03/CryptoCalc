@@ -1,0 +1,52 @@
+@use '../util/colors.scss' as *;
+
+.about-us {
+	display: flex;
+	flex-direction: column-reverse;
+	margin: 2em 0;
+	color: $white;
+
+	h3 {
+		margin: 1.5em 0 0.7em 0;
+		text-align: center;
+		font-size: 2.6rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.about-us {
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		margin: 3em 0;
+
+		div {
+			width: 40%;
+		}
+
+		img {
+			width: 40%;
+		}
+
+		h3 {
+			margin-top: 0;
+			font-size: 3rem;
+		}
+
+		p {
+			font-size: 1.8rem;
+		}
+	}
+}
+
+@media (min-width: 996px) {
+	.about-us {
+		h3 {
+			font-size: 3.6rem;
+		}
+
+		p {
+			font-size: 2.2rem;
+		}
+	}
+}

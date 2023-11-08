@@ -36,15 +36,20 @@
 		font-size: 1.8rem;
 	}
 
-	button {
+	a {
+		display: inline-block;
 		width: 70%;
+		margin: 0 auto;
 		margin-top: 1em;
 		padding: 0.7em 1.4em;
-		font-size: 2.2rem;
+		font-size: 2.4rem;
+		font-weight: bold;
+		text-decoration: none;
 		background-color: $gold;
+		color: #000;
+		transition: color 0.3s, background-color 0.3s;
 		border-radius: 0.8rem;
 		border: none;
-		transition: color 0.3s, background-color 0.3s;
 		cursor: pointer;
 
 		&:hover {
@@ -125,8 +130,8 @@
 			display: none;
 		}
 
-		button {
-			width: 30%;
+		a {
+			width: 25%;
 		}
 	}
 }
