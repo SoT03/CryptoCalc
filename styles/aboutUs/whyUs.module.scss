@@ -43,3 +43,42 @@
 		}
 	}
 }
+
+@media (min-width: 768px) {
+	.whyus-hero {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		background-image: url('/static/img/man-3126802_1920.jpg');
+		background-size: cover;
+		background-position: center;
+		z-index: -1;
+	}
+
+	.card-box {
+		flex-direction: row;
+		justify-content: space-around;
+		flex-wrap: wrap;
+
+		.card {
+			margin: 2em 0;
+			max-width: 240px;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.card-box {
+		.card {
+			max-width: 300px;
+
+			h3 {
+				font-size: 3rem;
+			}
+			p {
+				margin-top: 1em;
+				font-size: 2rem;
+			}
+		}
+	}
+}
