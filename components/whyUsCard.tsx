@@ -1,4 +1,4 @@
-import { TablerIconsProps } from '@tabler/icons-react';
+import classes from '../styles/aboutUs/whyUs.module.scss';
 
 type WhyUsCardType = {
 	title: string;
@@ -8,7 +8,7 @@ type WhyUsCardType = {
 
 const WhyUsCard: React.FC<WhyUsCardType> = (props) => {
 	return (
-		<div className='card'>
+		<div className={classes.card}>
 			{props.icon}
 			<h3>{props.title}</h3>
 			<p>{props.message}</p>

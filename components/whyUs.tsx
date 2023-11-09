@@ -11,14 +11,14 @@ import WhyUsCard from './whyUsCard';
 
 const cardData = [
 	{
-		title: 'Clients satisfaction',
+		title: 'Satisfaction',
 		message:
-			'Over 50,000 satisfied customers whom we have helped to successfully invest their money',
+			'Over 50,000 satisfied customers whom we have helped to successfully invest their money.',
 		icon: IconThumbUp,
 	},
 	{
 		title: 'Safety',
-		message: 'Connect your wallet using Trust Wallet or Metamask',
+		message: 'Connect your wallet using Trust Wallet or Metamask.',
 		icon: IconWallet,
 	},
 	{
@@ -29,7 +29,7 @@ const cardData = [
 	{
 		title: 'Notifications',
 		message:
-			'You will recive notifications with special offers and informations from us',
+			'You will recive notifications with special offers and informations from us.',
 		icon: IconDeviceMobileMessage,
 	},
 	{
