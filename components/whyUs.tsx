@@ -1,5 +1,12 @@
 import classes from '../styles/aboutUs/whyUs.module.scss';
-import { IconThumbUp } from '@tabler/icons-react';
+import {
+	IconThumbUp,
+	IconWallet,
+	IconHeartHandshake,
+	IconDeviceMobileMessage,
+	IconBrandDiscord,
+	IconVector,
+} from '@tabler/icons-react';
 import WhyUsCard from './whyUsCard';
 
 const cardData = [
@@ -8,6 +15,33 @@ const cardData = [
 		message:
 			'Over 50,000 satisfied customers whom we have helped to successfully invest their money',
 		icon: IconThumbUp,
+	},
+	{
+		title: 'Safety',
+		message: 'Connect your wallet using Trust Wallet or Metamask',
+		icon: IconWallet,
+	},
+	{
+		title: 'Contact with us',
+		message: 'We are online 24h to answer your questions !',
+		icon: IconHeartHandshake,
+	},
+	{
+		title: 'Notifications',
+		message:
+			'You will recive notifications with special offers and informations from us',
+		icon: IconDeviceMobileMessage,
+	},
+	{
+		title: 'All in one place',
+		message: 'You can invest, observe and sell everything at one place.',
+		icon: IconVector,
+	},
+	{
+		title: 'Our community',
+		message:
+			'We have a large discord server where you can talk to other people about crypto and more.',
+		icon: IconBrandDiscord,
 	},
 ];
 
