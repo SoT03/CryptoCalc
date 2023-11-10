@@ -48,12 +48,13 @@ const cardData = [
 const WhyUs = () => {
 	return (
 		<section className={`section ${classes['whyus-hero']}`}>
-			<div className="bg-shadow"></div>
+			<div className='bg-shadow'></div>
 			<h2>Why should you join us ?</h2>
 			<div className='wrapper'>
 				<div className={classes['card-box']}>
 					{cardData.map((item) => (
 						<WhyUsCard
+							key={item.title}
 							title={item.title}
 							message={item.message}
 							icon={<item.icon />}
