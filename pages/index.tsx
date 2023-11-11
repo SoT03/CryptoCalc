@@ -7,6 +7,8 @@ import WhyUs from '@/components/whyUs';
 const HomePage: React.FC<{ firstFourCurrencies: []; allCurrencies: [] }> = (
 	props: any
 ) => {
+	console.log(props.allCurrencies);
+
 	return (
 		<Layout>
 			<Header data={props.firstFourCurrencies} />
