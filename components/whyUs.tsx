@@ -8,6 +8,7 @@ import {
 	IconVector,
 } from '@tabler/icons-react';
 import WhyUsCard from './whyUsCard';
+import Link from 'next/link';
 
 const cardData = [
 	{
@@ -61,6 +62,10 @@ const WhyUs = () => {
 						/>
 					))}
 				</div>
+
+				<Link href='' className={classes['join-btn']}>
+					Join<IconBrandDiscord />
+				</Link>
 			</div>
 		</section>
 	);
