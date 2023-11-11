@@ -1,0 +1,8 @@
+@use './util/colors.scss' as *;
+.footer {
+	padding: 1em;
+	font-size: 2.2rem;
+	background-color: #000;
+	color: $white;
+	text-align: center;
+}
