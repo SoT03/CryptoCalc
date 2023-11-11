@@ -19,16 +19,16 @@ const Navbar = () => {
 				</Link>
 				<ul className={mobileNavIsOpen ? `${classes['mobile-open']}` : ''}>
 					<li>
-						<Link href='#home'>Home</Link>
+						<Link href='/#home'>Home</Link>
 					</li>
 					<li>
-						<Link href='#market'>Market</Link>
+						<Link href='/#market'>Market</Link>
 					</li>
 					<li>
-						<Link href='#aboutus'>About Us</Link>
+						<Link href='/#aboutus'>About Us</Link>
 					</li>
 					<li>
-						<Link href='/'>Converter</Link>
+						<Link href='/converter'>Converter</Link>
 					</li>
 				</ul>
 				<menu>

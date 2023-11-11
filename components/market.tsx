@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import classes from '../styles/market/market.module.scss';
 import TableItem from './marketTableItem';
-import { cryptoItem } from './headerCryptoItem';
 
 export type tableCellsData = {
 	id: number;
@@ -35,10 +34,8 @@ const Market: React.FC<{ data: [tableCellsData] }> = (props) => {
 	const lastItem = pageNumber * 10;
 	const firstItem = lastItem - 10;
 
-	console.log(pageNumber);
 
 	const tableData = props.data.slice(firstItem, lastItem);
-	console.log(tableData);
 
 	return (
 		<section className='wrapper section' id='market'>
