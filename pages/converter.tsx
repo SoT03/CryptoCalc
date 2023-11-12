@@ -5,10 +5,12 @@ import classes from '../styles/converter/converter.module.scss';
 import CurrencyRow from '@/components/assets/Select';
 import { useState } from 'react';
 
-const ConverterPage: React.FC<{ data: [] }> = (props) => {
-	const [cryptoOptions, setCryptoOptions] = useState([]);
-
-	console.log(props.data);
+const ConverterPage: React.FC<{
+	data: [{ symbol: string; priceUSD: number }];
+	currencyOptions: string[];
+}> = (props) => {
+	const [fromCurrency, setFromCurrency] = useState(props.currencyOptions[0]);
+	const [toCurrency, setToCurrency] = useState(props.currencyOptions[1]);
 
 	const selectCurrencyHandler = () => {
 		return;
@@ -23,11 +25,21 @@ const ConverterPage: React.FC<{ data: [] }> = (props) => {
 					<div className={classes.calc}>
 						<input type='number' className={classes['calc__amount']} />
 						<div className={classes['calc__box']}>
-							<CurrencyRow className={classes['calc__box-select']} />
+							<CurrencyRow
+								className={classes['calc__box-select']}
+								currencyOptions={props.currencyOptions}
+								selected={fromCurrency}
+								onChangeCurrency={(e) => setFromCurrency(e.target.value)}
+							/>
 							<button className={classes['calc__box-btn']}>
 								<IconArrowsLeftRight />
 							</button>
-							<CurrencyRow className={classes['calc__box-select']} />
+							<CurrencyRow
+								className={classes['calc__box-select']}
+								currencyOptions={props.currencyOptions}
+								selected={toCurrency}
+								onChangeCurrency={(e) => setToCurrency(e.target.value)}
+							/>
 						</div>
 					</div>
 					<p>{result}</p>
@@ -100,7 +112,11 @@ export const getServerSideProps = async () => {
 		}
 	);
 
+	const currencySymbol = cryptoArray.map((item) => {
+		return item.symbol;
+	});
+
 	return {
-		props: { data: cryptoArray },
+		props: { data: cryptoArray, currencyOptions: currencySymbol },
 	};
 };

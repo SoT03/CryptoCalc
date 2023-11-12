@@ -1,7 +1,19 @@
-const Select: React.FC<{ className: string }> = (props) => {
+const Select: React.FC<{
+	className: string;
+	currencyOptions?: string[];
+	selected?: string;
+	onChangeCurrency: (e: any) => void;
+}> = (props) => {
 	return (
-		<select className={props.className} value='hi'>
-			Hi
+		<select
+			className={props.className}
+			value={props.selected}
+			onChange={props.onChangeCurrency}>
+			{props.currencyOptions?.map((optionItem) => (
+				<option value={optionItem} key={optionItem}>
+					{optionItem}
+				</option>
+			))}
 		</select>
 	);
 };
