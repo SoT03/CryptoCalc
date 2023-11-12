@@ -3,8 +3,13 @@ import { IconArrowsLeftRight } from '@tabler/icons-react';
 
 import classes from '../styles/converter/converter.module.scss';
 import CurrencyRow from '@/components/assets/Select';
+import { useState } from 'react';
 
 const ConverterPage: React.FC<{ data: [] }> = (props) => {
+	const [cryptoOptions, setCryptoOptions] = useState([]);
+
+	console.log(props.data);
+
 	const selectCurrencyHandler = () => {
 		return;
 	};
@@ -52,7 +57,28 @@ export const getServerSideProps = async () => {
 
 	const firstTen = cryptoData.data.slice(0, 10);
 
+	const exchangeResponse = await fetch(
+		'http://api.exchangeratesapi.io/v1/latest?access_key=c60fa9417eb80a12f50f60d8c369c08a',
+		{
+			method: 'GET',
+		}
+	);
 	const cryptoArray: any[] = [];
+
+	const exchangeData = await exchangeResponse.json();
+
+	const fourCurrencies: string[] = ['USD', 'PLN', 'GBP', 'EUR'];
+
+	fourCurrencies.map((item) => {
+		const itemObj = {
+			symbol: item,
+			priceUSD: exchangeData.rates[item] * exchangeData.rates['USD'],
+		};
+
+		cryptoArray.push(itemObj);
+	});
+
+	//USD, PLN, GBP,EUR
 
 	firstTen.forEach(
 		(item: {
