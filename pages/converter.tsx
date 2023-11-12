@@ -11,19 +11,38 @@ const ConverterPage: React.FC<{
 }> = (props) => {
 	const [fromCurrency, setFromCurrency] = useState(props.currencyOptions[0]);
 	const [toCurrency, setToCurrency] = useState(props.currencyOptions[1]);
+	const [amount, setAmount] = useState(0);
 
-	const selectCurrencyHandler = () => {
-		return;
+	console.log(fromCurrency);
+	console.log(toCurrency);
+
+	let result: string = '';
+	const amountHandler = (e: any) => {
+		setAmount(e.target.value);
+
+		const fromCurrencyPrice: number = props.data.find(
+			(item) => item.symbol === fromCurrency
+		)!.priceUSD;
+		const toCurrencyPrice: number = props.data.find(
+			(item) => item.symbol === toCurrency
+		)!.priceUSD;
+
+		const convertedResult = (fromCurrencyPrice * amount) / toCurrencyPrice;
+
+		result = `Wynik : ${convertedResult}`;
 	};
-
-	const result: string = '';
 
 	return (
 		<Layout>
 			<main className={classes.calculator}>
 				<div className='wrapper'>
 					<div className={classes.calc}>
-						<input type='number' className={classes['calc__amount']} />
+						<input
+							type='number'
+							className={classes['calc__amount']}
+							onChange={amountHandler}
+							value={amount}
+						/>
 						<div className={classes['calc__box']}>
 							<CurrencyRow
 								className={classes['calc__box-select']}
@@ -53,6 +72,7 @@ export default ConverterPage;
 
 export const getServerSideProps = async () => {
 	const API_KEY = '4a3b5bb3-422d-41c7-8730-e219eff221e5';
+	const cryptoArray: any[] = [];
 
 	const response = await fetch(
 		'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
@@ -68,27 +88,6 @@ export const getServerSideProps = async () => {
 	const cryptoData = await response.json();
 
 	const firstTen = cryptoData.data.slice(0, 10);
-
-	const exchangeResponse = await fetch(
-		'http://api.exchangeratesapi.io/v1/latest?access_key=c60fa9417eb80a12f50f60d8c369c08a',
-		{
-			method: 'GET',
-		}
-	);
-	const cryptoArray: any[] = [];
-
-	const exchangeData = await exchangeResponse.json();
-
-	const fourCurrencies: string[] = ['USD', 'PLN', 'GBP', 'EUR'];
-
-	fourCurrencies.map((item) => {
-		const itemObj = {
-			symbol: item,
-			priceUSD: exchangeData.rates[item] * exchangeData.rates['USD'],
-		};
-
-		cryptoArray.push(itemObj);
-	});
 
 	//USD, PLN, GBP,EUR
 
@@ -116,6 +115,25 @@ export const getServerSideProps = async () => {
 		return item.symbol;
 	});
 
+	const exchangeResponse = await fetch(
+		'http://api.exchangeratesapi.io/v1/latest?access_key=c60fa9417eb80a12f50f60d8c369c08a',
+		{
+			method: 'GET',
+		}
+	);
+
+	const exchangeData = await exchangeResponse.json();
+
+	const fourCurrencies: string[] = ['USD', 'PLN', 'GBP', 'EUR'];
+
+	fourCurrencies.map((item) => {
+		const itemObj = {
+			symbol: item,
+			priceUSD: exchangeData.rates[item] * exchangeData.rates['USD'],
+		};
+
+		cryptoArray.push(itemObj);
+	});
 	return {
 		props: { data: cryptoArray, currencyOptions: currencySymbol },
 	};
