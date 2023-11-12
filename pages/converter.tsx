@@ -3,7 +3,7 @@ import { IconArrowsLeftRight } from '@tabler/icons-react';
 
 import classes from '../styles/converter/converter.module.scss';
 import CurrencyRow from '@/components/assets/Select';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const ConverterPage: React.FC<{
 	data: [{ symbol: string; priceUSD: number }];
@@ -11,26 +11,37 @@ const ConverterPage: React.FC<{
 }> = (props) => {
 	const [fromCurrency, setFromCurrency] = useState(props.currencyOptions[0]);
 	const [toCurrency, setToCurrency] = useState(props.currencyOptions[1]);
+	const [result, setResult] = useState(0);
 	const [amount, setAmount] = useState(0);
 
-	console.log(fromCurrency);
-	console.log(toCurrency);
+	console.log(props.data);
 
-	let result: string = '';
-	const amountHandler = (e: any) => {
-		setAmount(e.target.value);
-
+	const convertFunction = () => {
 		const fromCurrencyPrice: number = props.data.find(
 			(item) => item.symbol === fromCurrency
 		)!.priceUSD;
-		const toCurrencyPrice: number = props.data.find(
+
+		const toCurrencyPrice = props.data.find(
 			(item) => item.symbol === toCurrency
 		)!.priceUSD;
 
 		const convertedResult = (fromCurrencyPrice * amount) / toCurrencyPrice;
 
-		result = `Wynik : ${convertedResult}`;
+		setResult(convertedResult);
 	};
+
+	const amountHandler = (e: any) => {
+		setAmount(e.target.value);
+	};
+
+	const reverseButtonHandler = () => {
+		setToCurrency(fromCurrency);
+		setFromCurrency(toCurrency);
+	};
+
+	useEffect(() => {
+		convertFunction();
+	}, [toCurrency, fromCurrency, amount]);
 
 	return (
 		<Layout>
@@ -50,7 +61,9 @@ const ConverterPage: React.FC<{
 								selected={fromCurrency}
 								onChangeCurrency={(e) => setFromCurrency(e.target.value)}
 							/>
-							<button className={classes['calc__box-btn']}>
+							<button
+								className={classes['calc__box-btn']}
+								onClick={reverseButtonHandler}>
 								<IconArrowsLeftRight />
 							</button>
 							<CurrencyRow
@@ -60,8 +73,15 @@ const ConverterPage: React.FC<{
 								onChangeCurrency={(e) => setToCurrency(e.target.value)}
 							/>
 						</div>
+						{result != 0 && (
+							<p>
+								{' '}
+								{`${amount} ${fromCurrency} is equal to ${result.toFixed(
+									4
+								)} ${toCurrency} `}
+							</p>
+						)}
 					</div>
-					<p>{result}</p>
 				</div>
 			</main>
 		</Layout>
@@ -110,10 +130,13 @@ export const getServerSideProps = async () => {
 			cryptoArray.push(itemObj);
 		}
 	);
+	const fourCurrencies: string[] = ['USD', 'PLN', 'GBP', 'EUR'];
 
-	const currencySymbol = cryptoArray.map((item) => {
+	let currencySymbol = cryptoArray.map((item) => {
 		return item.symbol;
 	});
+
+	const fullSymbolArray = currencySymbol.concat(fourCurrencies);
 
 	const exchangeResponse = await fetch(
 		'http://api.exchangeratesapi.io/v1/latest?access_key=c60fa9417eb80a12f50f60d8c369c08a',
@@ -124,17 +147,15 @@ export const getServerSideProps = async () => {
 
 	const exchangeData = await exchangeResponse.json();
 
-	const fourCurrencies: string[] = ['USD', 'PLN', 'GBP', 'EUR'];
-
 	fourCurrencies.map((item) => {
 		const itemObj = {
 			symbol: item,
-			priceUSD: exchangeData.rates[item] * exchangeData.rates['USD'],
+			priceUSD: exchangeData.rates['USD'] / exchangeData.rates[item],
 		};
 
 		cryptoArray.push(itemObj);
 	});
 	return {
-		props: { data: cryptoArray, currencyOptions: currencySymbol },
+		props: { data: cryptoArray, currencyOptions: fullSymbolArray },
 	};
 };
