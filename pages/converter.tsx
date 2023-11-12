@@ -74,8 +74,7 @@ const ConverterPage: React.FC<{
 							/>
 						</div>
 						{result != 0 && (
-							<p>
-								{' '}
+							<p className={classes['calc__result']}>
 								{`${amount} ${fromCurrency} is equal to ${result.toFixed(
 									4
 								)} ${toCurrency} `}
