@@ -3,8 +3,6 @@ import { tableCellsData } from './market';
 const TableItem: React.FC<{ data: tableCellsData; index: number }> = (
 	props
 ) => {
-
-	
 	const precentChange24: any =
 		props.data.quote.USD.percent_change_24h.toFixed(2);
 
@@ -12,11 +10,13 @@ const TableItem: React.FC<{ data: tableCellsData; index: number }> = (
 		<tr>
 			<td data-cell='id'>{props.index}</td>
 			<td data-cell='name'>
-				<img
-					src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${props.data.id}.png`}
-					alt=''
-				/>
-				{props.data.name}
+				<span>
+					<img
+						src={`https://s2.coinmarketcap.com/static/img/coins/64x64/${props.data.id}.png`}
+						alt=''
+					/>
+					{props.data.name}
+				</span>
 			</td>
 			<td data-cell='price'>{props.data.quote.USD.price.toFixed(2)} $</td>
 			<td

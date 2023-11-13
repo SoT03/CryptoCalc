@@ -14,8 +14,6 @@ const ConverterPage: React.FC<{
 	const [result, setResult] = useState(0);
 	const [amount, setAmount] = useState(0);
 
-	console.log(props.data);
-
 	const convertFunction = () => {
 		const fromCurrencyPrice: number = props.data.find(
 			(item) => item.symbol === fromCurrency
@@ -89,7 +87,7 @@ const ConverterPage: React.FC<{
 
 export default ConverterPage;
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
 	const API_KEY = '4a3b5bb3-422d-41c7-8730-e219eff221e5';
 	const cryptoArray: any[] = [];
 

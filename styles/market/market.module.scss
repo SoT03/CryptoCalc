@@ -28,6 +28,10 @@
 
 		tr {
 			cursor: pointer;
+
+			&:hover {
+				background-color: rgba($color: $secondaryColor, $alpha: 0.3);
+			}
 		}
 	}
 
@@ -44,8 +48,10 @@
 	}
 
 	td[data-cell='name'] {
-		display: flex;
-		align-items: center;
+		span {
+			display: flex;
+			align-items: center;
+		}
 	}
 }
 
@@ -111,13 +117,17 @@
 				border: none;
 
 				&[data-cell='name'] {
-					img {
-						order: 1;
-						align-self: flex-end;
-						margin-left: 1em;
-						width: 24px;
+					display: flex;
+					align-items: center;
+					span {
+						img {
+							order: 1;
+							align-self: flex-end;
+							margin-left: 1em;
+							width: 24px;
+						}
+						text-align: left;
 					}
-					text-align: left;
 				}
 				&[data-cell='id'] {
 					display: none;
