@@ -34,7 +34,6 @@ const Market: React.FC<{ data: [tableCellsData] }> = (props) => {
 	const lastItem = pageNumber * 10;
 	const firstItem = lastItem - 10;
 
-
 	const tableData = props.data.slice(firstItem, lastItem);
 
 	return (
@@ -55,7 +54,9 @@ const Market: React.FC<{ data: [tableCellsData] }> = (props) => {
 				<tbody>
 					{tableData.map((item) => {
 						const index = tableData.indexOf(item) + 1;
-						return <TableItem key={item.id} data={item} index={index} />;
+						return (
+							<TableItem key={item.id} id={item.id} data={item} index={index} />
+						);
 					})}
 				</tbody>
 			</table>

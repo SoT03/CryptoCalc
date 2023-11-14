@@ -7,7 +7,6 @@ import WhyUs from '@/components/whyUs';
 const HomePage: React.FC<{ firstFourCurrencies: []; allCurrencies: [] }> = (
 	props: any
 ) => {
-
 	return (
 		<Layout>
 			<Header data={props.firstFourCurrencies} />
@@ -40,8 +39,6 @@ export const getServerSideProps = async () => {
 
 	const firstFour = cryptoData.data.slice(0, 4);
 	const allCryptos = cryptoData.data.slice(0, 50);
-
-	
 
 	return {
 		props: {

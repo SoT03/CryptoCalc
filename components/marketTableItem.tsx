@@ -1,13 +1,22 @@
+import { useRouter } from 'next/router';
 import { tableCellsData } from './market';
 
-const TableItem: React.FC<{ data: tableCellsData; index: number }> = (
-	props
-) => {
+const TableItem: React.FC<{
+	data: tableCellsData;
+	index: number;
+	id: number;
+}> = (props) => {
 	const precentChange24: any =
 		props.data.quote.USD.percent_change_24h.toFixed(2);
 
+	const router = useRouter();
+
+	const visitDetailsHandler = () => {
+		router.push('/' + props.id.toString());
+	};
+
 	return (
-		<tr>
+		<tr onClick={visitDetailsHandler}>
 			<td data-cell='id'>{props.index}</td>
 			<td data-cell='name'>
 				<span>
