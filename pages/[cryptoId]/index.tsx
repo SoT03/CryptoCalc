@@ -1,9 +1,28 @@
+import Layout from '@/components/layout/layout';
+import classes from '../../styles/detailsPage/detailsPage.module.scss';
 import { GetStaticProps } from 'next';
 
-const DetailPage: React.FC<{ data: {}}> = (props) => {
+const DetailsPage: React.FC<{ data: {} }> = (props) => {
 	console.log(props.data);
 
-	return <h1>H1</h1>;
+	return (
+		<Layout>
+			<main className={classes.box}>
+				<div className='wrapper'>
+					<div className={classes.body}>
+						<div className={classes['body__left']}>
+							<img src='' alt='' className={classes['body__left-logo']} />
+							<h2 className={classes['body__left-title']}>Crypto</h2>
+							<p className={classes['body__left-symbol']}>BTT</p>
+						</div>
+						<div className={classes['body__right']}>
+							<p className={classes['body__right-desc']}></p>
+						</div>
+					</div>
+				</div>
+			</main>
+		</Layout>
+	);
 };
 
 export const getStaticPaths = async () => {
@@ -49,9 +68,23 @@ export const getStaticProps = (async (context) => {
 
 	const cryptoDetails = data.data;
 
+	const res = await fetch(
+		' https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?id=' +
+			cryptoId,
+		{
+			method: 'GET',
+			headers: {
+				Accept: '*/*',
+				'X-CMC_PRO_API_KEY': API_KEY,
+			},
+		}
+	);
+
+	const cryptoData = res.json();
+
 	return {
 		props: { data: cryptoDetails },
 	};
 }) satisfies GetStaticProps;
 
-export default DetailPage;
+export default DetailsPage;
