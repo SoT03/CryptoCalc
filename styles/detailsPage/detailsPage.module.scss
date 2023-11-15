@@ -1,0 +1,13 @@
+.box {
+	position: relative;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.6rem;
+	padding: 2.2em;
+
+	.body {
+		background-color: red;
+	}
+}
