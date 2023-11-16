@@ -4,10 +4,93 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin-top: 30px;
 	font-size: 1.6rem;
 	padding: 2.2em;
 
 	.body {
-		background-color: red;
+		max-width: 400px;
+		padding: 2em 2em;
+		background-color: #222;
+		color: #fff;
+		border-radius: 8px;
+		box-shadow: 0 0 10px #000;
+
+		&__left {
+			padding: 0 1em;
+			text-align: center;
+
+			&-logo {
+				width: 64px;
+				height: 64px;
+			}
+			&-title {
+				font-size: 2.4rem;
+				margin: 0.2em 0;
+			}
+			&-symbol {
+				font-size: 2rem;
+			}
+		}
+
+		&__right {
+			padding: 1em;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.box {
+		.body {
+			&__left {
+				&-logo {
+					width: 80px;
+					height: 80px;
+				}
+				&-title {
+					font-size: 3rem;
+					margin: 0.5em 0;
+				}
+				&-symbol {
+					font-size: 2.2rem;
+				}
+			}
+
+			&__right {
+				margin-top: 1em;
+				font-size: 1.8rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 996px) {
+	.box {
+		.body {
+			display: flex;
+			max-width: 800px;
+			&__left {
+				margin-right: 2em;
+				&-logo {
+					width: 112px;
+					height: 112px;
+				}
+				&-title {
+					font-size: 3.6rem;
+				}
+				&-symbol {
+					font-size: 2.4rem;
+				}
+			}
+
+			&__right {
+				border-left: 1px solid #fff;
+
+				&-desc {
+					font-size: 2rem;
+					margin-left: 1em;
+				}
+			}
+		}
 	}
 }

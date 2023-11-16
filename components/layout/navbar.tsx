@@ -14,7 +14,7 @@ const Navbar = () => {
 	return (
 		<nav className={classes.navbar}>
 			<div className={`wrapper ${classes.nav}`}>
-				<Link href='/' className={classes.logo}>
+				<Link href='/#home' className={classes.logo}>
 					CryptoCoin
 				</Link>
 				<ul className={mobileNavIsOpen ? `${classes['mobile-open']}` : ''}>

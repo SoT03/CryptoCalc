@@ -2,8 +2,14 @@ import Layout from '@/components/layout/layout';
 import classes from '../../styles/detailsPage/detailsPage.module.scss';
 import { GetStaticProps } from 'next';
 
-const DetailsPage: React.FC<{ data: {} }> = (props) => {
-	console.log(props.data);
+type cryptoDescData = {
+	id: number;
+	name: string;
+	symbol: string;
+	description: string;
+};
+
+const DetailsPage: React.FC<{ data: cryptoDescData }> = (props) => {
 
 	return (
 		<Layout>
@@ -11,12 +17,20 @@ const DetailsPage: React.FC<{ data: {} }> = (props) => {
 				<div className='wrapper'>
 					<div className={classes.body}>
 						<div className={classes['body__left']}>
-							<img src='' alt='' className={classes['body__left-logo']} />
-							<h2 className={classes['body__left-title']}>Crypto</h2>
-							<p className={classes['body__left-symbol']}>BTT</p>
+							<img
+								src={`https://s2.coinmarketcap.com/static/img/coins/128x128/${props.data.id}.png`}
+								alt={`${props.data.name} logo`}
+								className={classes['body__left-logo']}
+							/>
+							<h2 className={classes['body__left-title']}>{props.data.name}</h2>
+							<p className={classes['body__left-symbol']}>
+								Symbol: {props.data.symbol}
+							</p>
 						</div>
 						<div className={classes['body__right']}>
-							<p className={classes['body__right-desc']}></p>
+							<p className={classes['body__right-desc']}>
+								{props.data.description}
+							</p>
 						</div>
 					</div>
 				</div>
@@ -51,7 +65,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = (async (context) => {
-	const cryptoId = context.params?.cryptoId;
+	const cryptoId: any = context.params?.cryptoId;
 
 	const API_KEY = '4a3b5bb3-422d-41c7-8730-e219eff221e5';
 	const response = await fetch(
@@ -66,21 +80,7 @@ export const getStaticProps = (async (context) => {
 	);
 	const data = await response.json();
 
-	const cryptoDetails = data.data;
-
-	const res = await fetch(
-		' https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?id=' +
-			cryptoId,
-		{
-			method: 'GET',
-			headers: {
-				Accept: '*/*',
-				'X-CMC_PRO_API_KEY': API_KEY,
-			},
-		}
-	);
-
-	const cryptoData = res.json();
+	const cryptoDetails = data.data[cryptoId];
 
 	return {
 		props: { data: cryptoDetails },
