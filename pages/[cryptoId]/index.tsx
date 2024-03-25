@@ -60,7 +60,7 @@ export const getStaticPaths = async () => {
 	const pathsArray = cryptoData.data.slice(0, 50);
 
 	return {
-		fallback: false,
+		fallback: true,
 		paths: pathsArray.map((crypto: { id: number }) => ({
 			params: { cryptoId: crypto.id.toString() },
 		})),
