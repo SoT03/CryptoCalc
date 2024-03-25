@@ -64,7 +64,7 @@ export const getStaticPaths = async () => {
 
 	const cryptoData = await response.json();
 
-	const pathsArray = cryptoData.data.slice(0, 50);
+	const pathsArray = cryptoData.data?.slice(0, 50);
 
 	return {
 		fallback: true,
