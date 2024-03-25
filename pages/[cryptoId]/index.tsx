@@ -1,6 +1,6 @@
 import Layout from '@/components/layout/layout';
 import classes from '../../styles/detailsPage/detailsPage.module.scss';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, GetStaticPropsContext } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -67,39 +67,55 @@ export const getStaticPaths = async () => {
 	const pathsArray = cryptoData.data?.slice(0, 50);
 
 	return {
-		fallback: true,
+		fallback: false,
 		paths: pathsArray.map((crypto: { id: number }) => ({
 			params: { cryptoId: crypto.id.toString() },
 		})),
 	};
 };
 
-export const getStaticProps = (async (context) => {
+export const getStaticProps = async (context: GetStaticPropsContext) => {
 	const cryptoId = context?.params?.cryptoId;
 
 	if (!cryptoId) {
-		return console.log('XD');
+		console.error('Crypto ID is undefined');
+		return {
+			notFound: true,
+		};
 	}
 
-	const API_KEY = '4a3b5bb3-422d-41c7-8730-e219eff221e5';
-	const response = await fetch(
-		'https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=' +
-			cryptoId.toString(),
-		{
-			method: 'GET',
-			headers: {
-				Accept: '*/*',
-				'X-CMC_PRO_API_KEY': API_KEY,
-			},
+	try {
+		const API_KEY = '4a3b5bb3-422d-41c7-8730-e219eff221e5';
+		const response = await fetch(
+			`https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=${cryptoId}`,
+			{
+				method: 'GET',
+				headers: {
+					Accept: '*/*',
+					'X-CMC_PRO_API_KEY': API_KEY,
+				},
+			}
+		);
+
+		if (!response.ok) {
+			console.error(`Failed to fetch data. Status: ${response.status}`);
+			return {
+				notFound: true,
+			};
 		}
-	);
-	const data = await response.json();
 
-	const cryptoDetails = data.data[cryptoId];
+		const data = await response.json();
+		const cryptoDetails = data.data[cryptoId.toString()];
 
-	return {
-		props: { data: cryptoDetails },
-	};
-}) satisfies GetStaticProps;
+		return {
+			props: { data: cryptoDetails },
+		};
+	} catch (error) {
+		console.error('Error fetching data:', error);
+		return {
+			notFound: true,
+		};
+	}
+};
 
 export default DetailsPage;
