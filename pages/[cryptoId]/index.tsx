@@ -2,6 +2,7 @@ import Layout from '@/components/layout/layout';
 import classes from '../../styles/detailsPage/detailsPage.module.scss';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 type cryptoDescData = {
 	id: number;
@@ -11,6 +12,12 @@ type cryptoDescData = {
 };
 
 const DetailsPage: React.FC<{ data: cryptoDescData }> = (props) => {
+	const router = useRouter();
+
+	if (router.isFallback) {
+		return <p>XD</p>;
+	}
+
 	return (
 		<Layout>
 			<main className={classes.box}>
