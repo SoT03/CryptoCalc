@@ -75,26 +75,47 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = (async (context) => {
-	const cryptoId: any = context.params?.cryptoId;
+	try {
+		const cryptoId = context?.params?.cryptoId;
+		console.log('Crypto ID:', cryptoId); // Logowanie identyfikatora kryptowaluty
 
-	const API_KEY = '4a3b5bb3-422d-41c7-8730-e219eff221e5';
-	const response = await fetch(
-		'https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=' + cryptoId,
-		{
-			method: 'GET',
-			headers: {
-				Accept: '*/*',
-				'X-CMC_PRO_API_KEY': API_KEY,
-			},
+		const API_KEY = '4a3b5bb3-422d-41c7-8730-e219eff221e5';
+		const response = await fetch(
+			'https://pro-api.coinmarketcap.com/v2/cryptocurrency/info?id=' + cryptoId,
+			{
+				method: 'GET',
+				headers: {
+					Accept: '*/*',
+					'X-CMC_PRO_API_KEY': API_KEY,
+				},
+			}
+		);
+
+		if (!response.ok) {
+			throw new Error('Failed to fetch data');
 		}
-	);
-	const data = await response.json();
 
-	const cryptoDetails = data.data[cryptoId];
+		const data = await response.json();
+		console.log('API Response:', data); // Logowanie odpowiedzi z API
 
-	return {
-		props: { data: cryptoDetails },
-	};
+		const cryptoDetails = data.data[cryptoId];
+
+		if (!cryptoDetails) {
+			// Jeśli nie znaleziono danych dla określonego identyfikatora, zwróć pustą stronę
+			return {
+				notFound: true,
+			};
+		}
+
+		return {
+			props: { data: cryptoDetails },
+		};
+	} catch (error) {
+		console.error('Error fetching crypto data:', error);
+		return {
+			props: { data: null },
+		};
+	}
 }) satisfies GetStaticProps;
 
 export default DetailsPage;
