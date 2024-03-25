@@ -1,3 +1,4 @@
+@use '../util/colors.scss' as *;
 .box {
 	position: relative;
 	height: 100vh;
@@ -7,6 +8,19 @@
 	margin-top: 30px;
 	font-size: 1.6rem;
 	padding: 2.2em;
+
+	.back {
+		display: block;
+		color: $white;
+		margin-top: 2rem;
+
+		font-weight: 600;
+		text-align: right;
+		transition: color 0.3s;
+		&:hover {
+			color: #aaa;
+		}
+	}
 
 	.body {
 		max-width: 400px;

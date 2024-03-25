@@ -1,6 +1,7 @@
 import Layout from '@/components/layout/layout';
 import classes from '../../styles/detailsPage/detailsPage.module.scss';
 import { GetStaticProps } from 'next';
+import Link from 'next/link';
 
 type cryptoDescData = {
 	id: number;
@@ -10,8 +11,6 @@ type cryptoDescData = {
 };
 
 const DetailsPage: React.FC<{ data: cryptoDescData }> = (props) => {
-	
-
 	return (
 		<Layout>
 			<main className={classes.box}>
@@ -32,6 +31,9 @@ const DetailsPage: React.FC<{ data: cryptoDescData }> = (props) => {
 							<p className={classes['body__right-desc']}>
 								{props.data.description}
 							</p>
+							<Link className={classes.back} href='/'>
+								Home Page
+							</Link>
 						</div>
 					</div>
 				</div>
