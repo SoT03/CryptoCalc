@@ -71,13 +71,15 @@ const ConverterPage: React.FC<{
 								onChangeCurrency={(e) => setToCurrency(e.target.value)}
 							/>
 						</div>
-						{result != 0 && (
-							<p className={classes['calc__result']}>
-								{`${amount} ${fromCurrency} is equal to ${result.toFixed(
-									4
-								)} ${toCurrency} `}
-							</p>
-						)}
+
+						<p
+							className={
+								classes[`${result ? 'calc__result--show' : 'calc__result'}`]
+							}>
+							{`${amount} ${fromCurrency} is equal to ${result.toFixed(
+								4
+							)} ${toCurrency} `}
+						</p>
 					</div>
 				</div>
 			</main>

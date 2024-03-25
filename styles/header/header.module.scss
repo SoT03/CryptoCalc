@@ -14,7 +14,24 @@
 		$primaryColor 0%,
 		$secondaryColor 100%
 	);
-	// background-image: url('../public//img/bitcoin-2007769_640.jpg');
+
+	&-coins--left,
+	&-coins--right {
+		display: none;
+		position: absolute;
+		top: 40%;
+		width: 14rem;
+		height: 14rem;
+		animation: bounce 4s infinite;
+	}
+
+	&-coins--left {
+		left: 17%;
+	}
+	&-coins--right {
+		right: 17%;
+	}
+
 	background-size: cover;
 	background-position: center;
 	z-index: 1;
@@ -73,7 +90,7 @@
 	}
 
 	.bitcoin-icon {
-		top: 12%;
+		top: 100%;
 		right: 12%;
 		width: 12rem;
 		height: 12rem;
@@ -125,6 +142,11 @@
 			margin-top: 3em;
 		}
 
+		.bitcoin-icon {
+			top: 12%;
+			right: 12%;
+		}
+
 		.coin-icon,
 		.bitcoin-icon {
 			display: none;
@@ -132,6 +154,10 @@
 
 		a {
 			width: 25%;
+		}
+		&-coins--left,
+		&-coins--right {
+			display: block;
 		}
 	}
 }
@@ -141,6 +167,10 @@
 			margin-top: 2em;
 			padding: 0 2em;
 			font-size: 8.2rem;
+		}
+		&-coins--left,
+		&-coins--right {
+			top: 25%;
 		}
 	}
 }
@@ -159,5 +189,16 @@
 	}
 	to {
 		transform: rotate(-360deg);
+	}
+}
+@keyframes bounce {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(4rem);
+	}
+	100% {
+		transform: translateY(0);
 	}
 }

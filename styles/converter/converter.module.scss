@@ -52,6 +52,11 @@
 		}
 
 		&__result {
+			visibility: hidden;
+		}
+
+		&__result--show {
+			visibility: visible;
 			color: $white;
 		}
 	}
@@ -75,6 +80,7 @@
 				}
 			}
 
+			&__result--show,
 			&__result {
 				margin: 0.5em;
 				font-size: 2.2rem;

@@ -10,6 +10,7 @@ type cryptoDescData = {
 };
 
 const DetailsPage: React.FC<{ data: cryptoDescData }> = (props) => {
+	
 
 	return (
 		<Layout>

@@ -27,10 +27,12 @@
 		font-size: 2rem;
 
 		tr {
+			animation: animationShow 2s;
 			cursor: pointer;
+			transition: background-color 0.3s;
 
 			&:hover {
-				background-color: rgba($color: $secondaryColor, $alpha: 0.3);
+				background-color: rgba($color: $white, $alpha: 0.2);
 			}
 		}
 	}
@@ -58,15 +60,17 @@
 .menu {
 	display: flex;
 	justify-content: center;
-	margin: 1em;
+	margin: 2em;
 	button {
-		padding: 0.2em 0.6em;
+		padding: 0.6em 1em;
 		margin: 0 0.5em;
+		font-weight: 700;
 		font-size: 2rem;
 		border-radius: 50%;
 		border: none;
 		box-shadow: 0 0 5px black;
 		cursor: pointer;
+		transition: background-color 0.5s, color 0.5s;
 	}
 
 	.btn-active {
@@ -148,5 +152,16 @@
 				}
 			}
 		}
+	}
+}
+
+@keyframes animationShow {
+	from {
+		transform: translateX(-15rem);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
 	}
 }

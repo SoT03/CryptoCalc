@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import classes from '../styles/market/market.module.scss';
 import TableItem from './marketTableItem';
 
+
 export type tableCellsData = {
 	id: number;
 	name: string;
@@ -17,7 +18,6 @@ export type tableCellsData = {
 };
 
 const Market: React.FC<{ data: [tableCellsData] }> = (props) => {
-
 	const [pageNumber, setPageNumber] = useState(1);
 
 	const paginationButtons = [];
