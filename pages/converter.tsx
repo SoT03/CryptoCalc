@@ -4,6 +4,7 @@ import { IconArrowsLeftRight } from '@tabler/icons-react';
 import classes from '../styles/converter/converter.module.scss';
 import CurrencyRow from '@/components/assets/Select';
 import { useEffect, useState } from 'react';
+import { Head } from 'next/document';
 
 const ConverterPage: React.FC<{
 	data: [{ symbol: string; priceUSD: number }];
@@ -43,6 +44,12 @@ const ConverterPage: React.FC<{
 
 	return (
 		<Layout>
+			<Head>
+				<meta
+					name='description'
+					content='Convert cryptocurrencies quickly and accurately with our easy-to-use crypto currency converter. Instantly calculate conversions between Bitcoin, Ethereum, Litecoin, and other digital assets.'
+				/>
+			</Head>
 			<main className={classes.calculator}>
 				<div className='wrapper'>
 					<div className={classes.calc}>

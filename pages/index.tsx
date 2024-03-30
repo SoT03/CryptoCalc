@@ -3,13 +3,23 @@ import Header from '@/components/header';
 import Layout from '@/components/layout/layout';
 import Market from '@/components/market';
 import WhyUs from '@/components/whyUs';
+import { Head } from 'next/document';
 
 const HomePage: React.FC<{ firstFourCurrencies: []; allCurrencies: [] }> = (
 	props: any
 ) => {
-
 	return (
 		<Layout>
+			<Head>
+				<title>CryptoCoin</title>
+				<link rel='canonical' href='https://crypto-calc-two.vercel.app/' />
+				<meta property='og:title' content='CryptoCoin' />
+				<meta property='og:url' content='https://crypto-calc-two.vercel.app/' />
+				<meta
+					name='description'
+					content='Stay updated with real-time cryptocurrency prices, market capitalization, trading volumes, and trends. Explore the latest news, analysis, and insights on Bitcoin, Ethereum, and other popular cryptocurrencies.'
+				/>
+			</Head>
 			<Header data={props.firstFourCurrencies} />
 			<main>
 				<Market data={props.allCurrencies} />

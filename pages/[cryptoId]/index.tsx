@@ -1,8 +1,9 @@
 import Layout from '@/components/layout/layout';
 import classes from '../../styles/detailsPage/detailsPage.module.scss';
-import { GetStaticProps, GetStaticPropsContext } from 'next';
+import { GetStaticPropsContext } from 'next';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+
+import { Head } from 'next/document';
 
 type cryptoDescData = {
 	id: number;
@@ -12,14 +13,12 @@ type cryptoDescData = {
 };
 
 const DetailsPage: React.FC<{ data: cryptoDescData }> = (props) => {
-	const router = useRouter();
-
-	if (router.isFallback) {
-		return <p>XD</p>;
-	}
-
 	return (
 		<Layout>
+			<Head>
+				<title>{props.data.name}</title>
+				<meta name='description' content={`Details about ${props.data.name}`} />
+			</Head>
 			<main className={classes.box}>
 				<div className='wrapper'>
 					<div className={classes.body}>
