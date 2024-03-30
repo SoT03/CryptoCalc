@@ -3,7 +3,7 @@ import classes from '../../styles/detailsPage/detailsPage.module.scss';
 import { GetStaticPropsContext } from 'next';
 import Link from 'next/link';
 
-import { Head } from 'next/document';
+import Head from 'next/head';
 
 type cryptoDescData = {
 	id: number;
@@ -16,8 +16,11 @@ const DetailsPage: React.FC<{ data: cryptoDescData }> = (props) => {
 	return (
 		<Layout>
 			<Head>
-				<title>{props.data.name}</title>
-				<meta name='description' content={`Details about ${props.data.name}`} />
+				<title>{props.data?.name}</title>
+				<meta
+					name='description'
+					content={`Details about ${props.data?.name}`}
+				/>
 			</Head>
 			<main className={classes.box}>
 				<div className='wrapper'>

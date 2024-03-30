@@ -4,7 +4,7 @@ import { IconArrowsLeftRight } from '@tabler/icons-react';
 import classes from '../styles/converter/converter.module.scss';
 import CurrencyRow from '@/components/assets/Select';
 import { useEffect, useState } from 'react';
-import { Head } from 'next/document';
+import Head from 'next/head';
 
 const ConverterPage: React.FC<{
 	data: [{ symbol: string; priceUSD: number }];

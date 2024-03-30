@@ -3,7 +3,7 @@ import Header from '@/components/header';
 import Layout from '@/components/layout/layout';
 import Market from '@/components/market';
 import WhyUs from '@/components/whyUs';
-import { Head } from 'next/document';
+import Head from 'next/head';
 
 const HomePage: React.FC<{ firstFourCurrencies: []; allCurrencies: [] }> = (
 	props: any
