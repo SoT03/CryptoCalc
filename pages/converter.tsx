@@ -5,6 +5,7 @@ import classes from '../styles/converter/converter.module.scss';
 import CurrencyRow from '@/components/assets/Select';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { env } from 'process';
 
 const ConverterPage: React.FC<{
 	data: [{ symbol: string; priceUSD: number }];
@@ -101,7 +102,7 @@ export const getStaticProps = async () => {
 	const cryptoArray: any[] = [];
 
 	const response = await fetch(
-		'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
+	 process.env.COIN_MARKET! ,
 		{
 			method: 'GET',
 			headers: {
